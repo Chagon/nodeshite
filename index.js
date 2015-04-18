@@ -6,6 +6,8 @@ require('leapjs/template/entry.js');
 var controller = new Leap.Controller();
 
 controller.on('frame', function(frame) {
+    var printHands = '';
+
     if (frame.hands[0] !== undefined) {
         var roll = frame.hands[0].roll();
         var pitch = frame.hands[0].pitch();
@@ -16,10 +18,10 @@ controller.on('frame', function(frame) {
                 return formatThreeDigitSigned(element);
             });
 
-            console.log(array);
+            printHands += array.toString();
         }
         else
-            console.log(toDegreeArray(roll, pitch, yaw));
+            toDegreeArray(roll, pitch, yaw).toString();
     }
     if (frame.hands[1] !== undefined) {
         var roll = frame.hands[1].roll();
@@ -31,11 +33,13 @@ controller.on('frame', function(frame) {
                 return formatThreeDigitSigned(element);
             });
 
-            console.log(array);
+            printHands += array;
         }
         else
-            console.log(toDegreeArray(roll, pitch, yaw));
+            printHands += toDegreeArray(roll, pitch, yaw);
     }
+
+    console.log(printHands);
 });
 
 function toDegreeArray(roll, pitch, yaw) {
