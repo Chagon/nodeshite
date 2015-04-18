@@ -2,6 +2,7 @@ import java.net.Socket;
 import java.net.ServerSocket;
 import java.net.SocketTimeoutException;
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 
 public class JavaNowIsNodeShite extends Thread
@@ -36,6 +37,10 @@ public class JavaNowIsNodeShite extends Thread
                 DataInputStream in =
                     new DataInputStream(server.getInputStream());
                 System.out.println(in.readUTF());
+                DataOutputStream out =
+                    new DataOutputStream(server.getOutputStream());
+                out.writeUTF("Blergh");
+                server.close();
             }
             catch (SocketTimeoutException exception)
             {
