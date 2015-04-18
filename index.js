@@ -40,7 +40,7 @@ function formatThreeDigitSigned(number) {
 
     while (length < 3) {
         returnString = ' ' + returnString;
-        length--;
+        length++;
     }
 
     return returnString;
