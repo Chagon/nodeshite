@@ -10,9 +10,6 @@ controller.on('frame', function(frame) {
 
         console.log(toDegreeArray(roll, pitch, yaw));
     }
-
-    if (frame.hands[0] !== undefined)
-        console.log(frame.hands[0].roll());
 });
 
 function toDegreeArray(roll, pitch, yaw) {
