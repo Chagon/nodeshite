@@ -36,10 +36,10 @@ function formatThreeDigitSigned(number) {
     var length = number.toString().length;
 
     if (number > 0 )
-        returnString += ' ' + returnString;
+        returnString = ' ' + returnString;
 
     while (length < 3) {
-        returnString += ' ' + returnString;
+        returnString = ' ' + returnString;
         length--;
     }
 
