@@ -16,10 +16,10 @@ controller.on('frame', function(frame) {
                 return formatThreeDigitSigned(element);
             });
 
-            firstHand = array.toString();
+            firstHand = array;
         }
         else
-            firstHand = toDegreeArray(roll, pitch, yaw).toString();
+            firstHand = toDegreeArray(roll, pitch, yaw);
     }
     if (frame.hands[1] !== undefined) {
         var roll = frame.hands[1].roll();
@@ -31,10 +31,10 @@ controller.on('frame', function(frame) {
                 return formatThreeDigitSigned(element);
             });
 
-            secondHand = array.toString();
+            secondHand = array;
         }
         else
-            secondHand = toDegreeArray(roll, pitch, yaw).toString();
+            secondHand = toDegreeArray(roll, pitch, yaw);
     }
 
     if (frame.hands[0] !== undefined || frame.hands[1] !== undefined)
