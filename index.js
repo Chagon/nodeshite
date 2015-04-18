@@ -38,7 +38,9 @@ controller.on('frame', function(frame) {
     }
 
     if (frame.hands[0] !== undefined || frame.hands[1] !== undefined)
-        console.log(firstHand + '    ' + secondHand);
+        console.log(firstHand ? firstHand : ''
+                    + '    '
+                    + secondHand ? secondHand : '');
 });
 
 function toDegreeArray(roll, pitch, yaw) {
