@@ -15,8 +15,6 @@ controller.on('frame', function(frame) {
             array = toDegreeArray(roll, pitch, yaw).map(function(element) {
                 return formatThreeDigitSigned(element);
             });
-
-            console.log(array);
         }
         else
             console.log(toDegreeArray(roll, pitch, yaw));
@@ -37,6 +35,8 @@ function formatThreeDigitSigned(number) {
 
     if (number >= 0 )
         returnString = ' ' + returnString;
+    else
+        length--;
 
     while (length < 3) {
         returnString = ' ' + returnString;
