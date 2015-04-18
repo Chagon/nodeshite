@@ -3,7 +3,7 @@ require('leapjs/template/entry.js');
 var controller = new Leap.Controller();
 
 controller.on('frame', function(frame) {
-    if (frame.hands[0] === undefined)
+    if (frame.hands[0] !== undefined)
         console.log(frame.hands[0].roll());
 });
 
