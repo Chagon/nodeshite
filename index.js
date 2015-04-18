@@ -33,7 +33,7 @@ function radToDeg(rad) {
 
 function formatThreeDigitSigned(number) {
     var returnString = '' + number;
-    var length = number.toString().length();
+    var length = number.toString().length;
 
     if (number > 0 )
         returnString += ' ' + returnString;
