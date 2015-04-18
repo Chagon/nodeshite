@@ -27,6 +27,7 @@ public class JavaNowIsNodeShite extends Thread
         }
     }
 
+    @Override
     public void run()
     {
         while (true)
@@ -39,7 +40,7 @@ public class JavaNowIsNodeShite extends Thread
                 System.out.println(in.readUTF());
                 DataOutputStream out =
                     new DataOutputStream(server.getOutputStream());
-                out.writeUTF("Blergh");
+                out.writeBytes("Blergh");
                 server.close();
             }
             catch (SocketTimeoutException exception)
