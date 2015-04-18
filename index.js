@@ -21,26 +21,8 @@ controller.on('frame', function(frame) {
         else
             firstHand = toDegreeArray(roll, pitch, yaw);
     }
-    if (frame.hands[1] !== undefined) {
-        var roll = frame.hands[1].roll();
-        var pitch = frame.hands[1].pitch();
-        var yaw = frame.hands[1].yaw();
 
-        if (DO_FORMATING) {
-            array = toDegreeArray(roll, pitch, yaw).map(function(element) {
-                return formatThreeDigitSigned(element);
-            });
-
-            secondHand = array;
-        }
-        else
-            secondHand = toDegreeArray(roll, pitch, yaw);
-    }
-
-    if (frame.hands[0] !== undefined || frame.hands[1] !== undefined)
-        console.log(firstHand ? firstHand : ''
-                    + '    '
-                    + secondHand ? secondHand : '');
+    console.log(frame.hands[0].palmPosition[1]);
 });
 
 function toDegreeArray(roll, pitch, yaw) {
