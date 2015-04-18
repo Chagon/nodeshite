@@ -33,13 +33,13 @@ controller.on('frame', function(frame) {
                 return formatThreeDigitSigned(element);
             });
 
-            printHands += array;
+            printHands += '     ' array.toString();
         }
         else
-            printHands += toDegreeArray(roll, pitch, yaw);
+            printHands += '     ' toDegreeArray(roll, pitch, yaw).toString();
     }
 
-    if (frame.hands[0] !== undefined && frame.hands[1] !== undefined)
+    if (frame.hands[0] !== undefined || frame.hands[1] !== undefined)
         console.log(printHands);
 });
 
