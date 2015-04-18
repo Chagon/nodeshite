@@ -8,7 +8,15 @@ controller.on('frame', function(frame) {
         var pitch = frame.hands[0].pitch();
         var yaw = frame.hands[0].yaw();
 
-        console.log(toDegreeArray(roll, pitch, yaw));
+        if (DO_FORMATING) {
+            array = toDegreeArray(roll, pitch, yaw).map(function(element) {
+                return formatThreeDigitSigned(element);
+            });
+
+            console.log(array);
+        }
+        else
+            console.log(toDegreeArray(roll, pitch, yaw));
     }
 });
 
