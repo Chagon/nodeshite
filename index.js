@@ -39,7 +39,8 @@ controller.on('frame', function(frame) {
             printHands += toDegreeArray(roll, pitch, yaw);
     }
 
-    console.log(printHands);
+    if (frame.hands[0] !== undefined && frame.hands[1] !== undefined)
+        console.log(printHands);
 });
 
 function toDegreeArray(roll, pitch, yaw) {
