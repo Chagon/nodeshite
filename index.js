@@ -1,5 +1,5 @@
 // If the numbers should be formatted neatly
-DO_FORMATING = true;
+DO_FORMATING = false;
 
 require('leapjs/template/entry.js');
 
