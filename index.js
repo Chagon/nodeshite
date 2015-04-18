@@ -43,7 +43,7 @@ function formatThreeDigitSigned(number) {
         length--;
     }
 
-    return
+    return returnString;
 }
 
 controller.on('streamingStarted', function() {
