@@ -14,10 +14,25 @@ controller.on('frame', function(frame) {
 
 function toDegreeArray(roll, pitch, yaw) {
     return [ radToDeg(roll), radToDeg(pitch), radToDeg(yaw) ];
-};
+}
 
 function radToDeg(rad) {
     return Math.floor(rad * 180  / Math.PI);
+}
+
+function formatThreeDigitSigned(number) {
+    var returnString = '' + number;
+    var length = number.toString().length();
+
+    if (number > 0 )
+        returnString += ' ' + returnString;
+
+    while (length < 3) {
+        returnString += ' ' + returnString;
+        length--;
+    }
+
+    return
 }
 
 controller.on('streamingStarted', function() {
