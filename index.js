@@ -17,7 +17,7 @@ function toDegreeArray(roll, pitch, yaw) {
 };
 
 function radToDeg(rad) {
-    return rad * 180  / Math.PI;
+    return Math.floor(rad * 180  / Math.PI);
 }
 
 controller.on('streamingStarted', function() {
