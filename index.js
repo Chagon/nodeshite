@@ -21,6 +21,21 @@ controller.on('frame', function(frame) {
         else
             console.log(toDegreeArray(roll, pitch, yaw));
     }
+    if (frame.hands[1] !== undefined) {
+        var roll = frame.hands[1].roll();
+        var pitch = frame.hands[1].pitch();
+        var yaw = frame.hands[1].yaw();
+
+        if (DO_FORMATING) {
+            array = toDegreeArray(roll, pitch, yaw).map(function(element) {
+                return formatThreeDigitSigned(element);
+            });
+
+            console.log(array);
+        }
+        else
+            console.log(toDegreeArray(roll, pitch, yaw));
+    }
 });
 
 function toDegreeArray(roll, pitch, yaw) {
