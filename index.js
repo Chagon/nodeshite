@@ -38,7 +38,7 @@ function formatThreeDigitSigned(number) {
     if (number >= 0 )
         returnString = ' ' + returnString;
     else
-        length++;
+        length--;
 
     while (length < 3) {
         returnString = ' ' + returnString;
