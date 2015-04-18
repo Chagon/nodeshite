@@ -1,3 +1,6 @@
+// If the numbers should be formatted neatly
+DO_FORMATING = true;
+
 require('leapjs/template/entry.js');
 
 var controller = new Leap.Controller();
