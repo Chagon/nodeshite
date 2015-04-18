@@ -20,9 +20,8 @@ controller.on('frame', function(frame) {
         }
         else
             firstHand = toDegreeArray(roll, pitch, yaw);
+        console.log(frame.hands[0].palmPosition[1]);
     }
-
-    console.log(frame.hands[0].palmPosition[1]);
 });
 
 function toDegreeArray(roll, pitch, yaw) {
