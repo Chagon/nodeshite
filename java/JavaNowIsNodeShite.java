@@ -1,8 +1,10 @@
 import java.net.Socket;
 import java.net.ServerSocket;
 import java.net.SocketTimeoutException;
-import java.io.DataInputStream;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.PrintStream;
 import java.io.IOException;
 
 public class JavaNowIsNodeShite extends Thread
@@ -15,7 +17,7 @@ public class JavaNowIsNodeShite extends Thread
         try
         {
             socket = new ServerSocket(port);
-            socket.setSoTimeout(10000);
+            //socket.setSoTimeout(10000);
         }
         catch (SocketTimeoutException exception)
         {
@@ -35,13 +37,22 @@ public class JavaNowIsNodeShite extends Thread
             try
             {
                 Socket server = socket.accept();
-                DataInputStream in =
-                    new DataInputStream(server.getInputStream());
-                System.out.println(in.readUTF());
-                DataOutputStream out =
-                    new DataOutputStream(server.getOutputStream());
-                out.writeBytes("Blergh");
-                server.close();
+
+                InputStreamReader in =
+                    new InputStreamReader(server.getInputStream());
+                BufferedReader out =
+                    new BufferedReader(in);
+
+                String output = out.readLine();
+                System.out.println(output);
+
+                PrintStream ps = new PrintStream(server.getOutputStream());
+                ps.println(output.toString());
+
+                //(server.getOutputStream());
+
+                //out.writeBytes("Blergh");
+                //server.close();
             }
             catch (SocketTimeoutException exception)
             {
