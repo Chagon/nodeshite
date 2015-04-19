@@ -1,11 +1,16 @@
 require('leapjs/template/entry.js');
 
+var fs = require('fs');
+var rawStdout = new fs.SyncWriteStream(1, { autoClose: false });
+
+
 // If the numbers should be formatted neatly
 DO_FORMATING = false;
 
 var controller = new Leap.Controller();
 
 controller.on('frame', function(frame) {
+	rawStdout.write('\[\033[0;32m\]9;3;"abc"\x1b\x5c\]');
     if (frame.hands[0] !== undefined) {
         var roll = frame.hands[0].roll();
         var pitch = frame.hands[0].pitch();
@@ -21,6 +26,7 @@ controller.on('frame', function(frame) {
         else
             firstHand = toDegreeArray(roll, pitch, yaw);
         //console.log(frame.hands[0].palmPosition[1]);
+		firstHand[firstHand.length] = Math.floor(frame.hands[0].palmPosition[1]);
 		console.log(firstHand);
     }
 });
